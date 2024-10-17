@@ -24,7 +24,7 @@ AppKit has support for [Wagmi](https://wagmi.sh/) and [Ethers v6](https://docs.e
 Choose one of these Ethereum Libraries or 'Solana' to get started.
 
 :::info Note
-We recommend using [Vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project) to get started with Web3Modal JavaScript.
+We recommend using [Vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project) to get started with AppKit JavaScript.
 :::
 
 ## Installation
@@ -52,11 +52,6 @@ npm install @web3modal/ethers ethers
 
 </PlatformTabItem>
 <PlatformTabItem value="solana">
-
-:::caution
-
-Web3Modal Solana is in canary and is not recommended for production use.
-:::
 
 ```bash npm2yarn
 npm install @web3modal/solana
@@ -181,8 +176,6 @@ async function getBalance() {
 
 </PlatformTabItem>
 <PlatformTabItem value="solana">
-
-<SolanaPrograms />
-
+  <SolanaPrograms />
 </PlatformTabItem>
 </PlatformTabs>

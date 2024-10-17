@@ -1,0 +1,49 @@
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+In your `App.vue` file set up the following configuration.
+
+```html
+<script setup lang="ts">
+import { createWeb3Modal, defaultSolanaConfig } from '@web3modal/solana/vue'
+import { solana, solanaTestnet, solanaDevnet } from '@web3modal/solana/chains'
+
+// 0. Setup chains
+const chains = [solana, solanaTestnet, solanaDevnet]
+
+// 1. Get projectId from https://cloud.walletconnect.com
+const projectId = 'YOUR_PROJECT_ID'
+
+// 2. Create solanaConfig
+const metadata = {
+  name: 'Web3Modal',
+  description: 'Web3Modal Solana Example',
+  url: 'https://web3modal.com', // origin must match your domain & subdomain
+  icons: ['https://avatars.githubusercontent.com/u/37784886']
+}
+
+// 4. Create Solana config
+const solanaConfig = defaultSolanaConfig({
+  metadata,
+  chains,
+  projectId
+})
+
+// 5. Create a Web3Modal instance
+createWeb3Modal({
+  solanaConfig,
+  chains,
+  projectId,
+  wallets: [
+      // Solana wallet adapters (check Custom connectors for more info)
+  ]
+})
+
+</script>
+
+<template> // Rest of your app ... </template>
+```
+
+:::note IMPORTANT
+Make sure that the `url` from the `metadata` matches your domain and subdomain. This will later be used by the [Verify API](../../../cloud/verify.mdx) to tell wallets if your application has been verified or not.
+:::

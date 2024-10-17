@@ -51,7 +51,10 @@ const advanced = {
             'advanced/multichain/rpc-reference/tezos-rpc',
             'advanced/multichain/rpc-reference/xrpl-rpc',
             'advanced/multichain/rpc-reference/casper-rpc',
-            'advanced/multichain/rpc-reference/everscale-rpc'
+            'advanced/multichain/rpc-reference/everscale-rpc',
+            'advanced/multichain/rpc-reference/bitcoin-rpc',
+            'advanced/multichain/rpc-reference/litecoin-rpc',
+            'advanced/multichain/rpc-reference/dogecoin-rpc'
           ]
         },
         {
@@ -74,22 +77,13 @@ const advanced = {
     },
     {
       type: 'category',
-      label: 'Providers',
+      label: 'Providers & Adapters',
       collapsible: true,
       collapsed: true,
-      items: ['advanced/providers/ethereum', 'advanced/providers/universal']
-    },
-    {
-      type: 'category',
-      label: 'WalletConnectModal',
-      collapsed: true,
-      collapsible: true,
       items: [
-        'advanced/walletconnectmodal/about',
-        'advanced/walletconnectmodal/usage',
-        'advanced/walletconnectmodal/options',
-        'advanced/walletconnectmodal/theming',
-        'advanced/walletconnectmodal/resources'
+        'advanced/providers/ethereum',
+        'advanced/providers/universal',
+        'advanced/providers/solana-adapter'
       ]
     },
     {
@@ -163,6 +157,32 @@ const welcome = {
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 
 module.exports = {
+  WCM: [
+    {
+      type: 'doc',
+      label: 'Home',
+      className: 'kill',
+      id: 'readme'
+    },
+    {
+      type: 'link',
+      label: 'Welcome',
+      href: '/'
+    },
+    {
+      type: 'category',
+      label: 'WalletConnectModal',
+      collapsible: false,
+      className: 'menu_outer_list',
+      items: [
+        'advanced/walletconnectmodal/about',
+        'advanced/walletconnectmodal/usage',
+        'advanced/walletconnectmodal/options',
+        'advanced/walletconnectmodal/theming',
+        'advanced/walletconnectmodal/resources'
+      ]
+    }
+  ],
   mainSidebar: [
     {
       type: 'doc',
@@ -212,12 +232,22 @@ module.exports = {
                 { type: 'doc', label: 'Email & Socials', id: 'appkit/features/socials' },
                 { type: 'doc', label: 'Smart Accounts', id: 'appkit/features/smart-accounts' },
                 { type: 'doc', label: 'One-Click Auth', id: 'appkit/features/one-click-auth' },
-                { type: 'doc', label: 'Onramp', id: 'appkit/features/onramp' },
+                { type: 'doc', label: 'On-Ramp', id: 'appkit/features/onramp' },
                 { type: 'doc', label: 'Notifications', id: 'appkit/features/notifications' },
                 { type: 'doc', label: 'Solana', id: 'appkit/features/solana' }
               ]
             },
             'appkit/upgrade',
+            {
+              type: 'category',
+              label: 'Migration',
+              collapsed: true,
+              collapsible: true,
+              items: [
+                { type: 'doc', label: 'From RainbowKit', id: 'appkit/migration/from-rainbowkit-next' },
+                { type: 'doc', label: 'From Anza Adapter', id: 'appkit/migration/from-anza-adapter-react' },
+              ]
+            },
           ]
         },
         {
@@ -238,7 +268,8 @@ module.exports = {
                 { type: 'doc', label: 'Notifications', id: 'walletkit/features/notifications' },
                 { type: 'doc', label: 'Verify', id: 'walletkit/features/verify' }
               ]
-            }
+            },
+            'walletkit/best-practices'
           ]
         }
       ]
@@ -713,6 +744,7 @@ module.exports = {
           items: [
             'appkit/flutter/core/installation',
             'appkit/flutter/core/usage',
+            'appkit/flutter/core/siwe',
             'appkit/flutter/core/options',
             'appkit/flutter/core/actions',
             'appkit/flutter/core/events',
@@ -795,6 +827,7 @@ module.exports = {
             'appkit/android/core/usage',
             'appkit/android/core/options',
             'appkit/android/core/actions',
+            'appkit/android/core/one-click-auth',
             'appkit/android/core/components',
             'appkit/android/core/theming'
           ]
@@ -832,7 +865,8 @@ module.exports = {
             'appkit/unity/core/usage',
             'appkit/unity/core/options',
             'appkit/unity/core/actions',
-            'appkit/unity/core/events'
+            'appkit/unity/core/events',
+            'appkit/unity/core/customization'
           ]
         },
         {
@@ -864,6 +898,7 @@ module.exports = {
         'walletkit/android/usage',
         'walletkit/android/one-click-auth',
         'walletkit/android/mobile-linking',
+        'walletkit/android/link-mode',
         'walletkit/android/verify',
         'walletkit/android/eip5792',
         {
@@ -965,6 +1000,7 @@ module.exports = {
       items: [
         'walletkit/flutter/installation',
         'walletkit/flutter/usage',
+        'walletkit/flutter/one-click-auth',
         'walletkit/flutter/mobile-linking',
         'walletkit/flutter/verify',
         'walletkit/flutter/eip5792',

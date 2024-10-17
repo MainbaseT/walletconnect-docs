@@ -3,7 +3,6 @@ import DocSidebar from '@theme-original/DocSidebar'
 import Dropdown from '../Dropdown'
 import '../../css/sidebar.css'
 import { useLocation } from 'react-router-dom'
-import { getItemInStorage } from '../Dropdown/utils'
 import { appKit_environments, walletKit_environments } from './constants'
 
 export default function DocSidebarWrapper(props) {
@@ -25,16 +24,16 @@ export default function DocSidebarWrapper(props) {
 }
 
 export const FrameworksMenu = () => {
-  const initial_environment = getItemInStorage()
-
   const location = useLocation()
 
   if (
     location.pathname.includes('/appkit/overview') ||
     location.pathname.includes('/appkit/features') ||
+    location.pathname.includes('/appkit/migration') ||
     location.pathname.includes('/appkit/upgrade') ||
     location.pathname.includes('/walletkit/overview') ||
-    location.pathname.includes('/walletkit/features')
+    location.pathname.includes('/walletkit/features') ||
+    location.pathname.includes('/walletkit/best-practices')
   ) {
     return
   }
@@ -43,7 +42,6 @@ export const FrameworksMenu = () => {
     return (
       <Dropdown
         list={appKit_environments}
-        initial={appKit_environments.find(item => item === initial_environment)}
       />
     )
   }
@@ -53,7 +51,6 @@ export const FrameworksMenu = () => {
       <Dropdown
         list={walletKit_environments}
         isWalletKit
-        initial={walletKit_environments.find(item => item === initial_environment)}
       />
     )
   }
